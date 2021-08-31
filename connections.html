@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>HL7.EU.FHIR.GH\Terminology - FHIR v4.1.0</title>
+    <title>HL7.EU.FHIR.GH\Connections - FHIR v4.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -40,8 +40,8 @@
 
 	  <script src="assets/js/prism.js"></script>
 
-    <style type="text/css">h2{--heading-prefix:"7"}
-    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
         
@@ -126,7 +126,7 @@
     <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
       <div class="container">    <!-- container -->
         <ul class="breadcrumb">
-          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Terminology</b></li>
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Connections</b></li>
 
         </ul>
       </div>    <!-- /container -->
@@ -147,7 +147,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </style>
 <div class="col-12">
     <!-- ReleaseHeader --><p id="publish-box">Gravitate Health FHIR Implementation Guide - Local Development build (v0.1.0). See the <a href="http://hl7.eu/fhir/ig/gravitate-health/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
-  <h2>Terminology</h2>
+  <h2>Connections</h2>
   
 
 
@@ -159,65 +159,175 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p>  <!-- white space is critical inside of capture --></p>
-<div class="markdown-toc">
-<ul id="markdown-toc">
-  <li><a href="#epi-terminologies" id="markdown-toc-epi-terminologies">ePI Terminologies</a></li>
-  <li><a href="#ips-terminologies" id="markdown-toc-ips-terminologies">IPS Terminologies</a></li>
-</ul>
-
+<div>
+  <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
 </div>
-<p>ePI and IPS reference a core set of globally accessible and usable value sets licensed at no-cost with the aim to serve the public good.</p>
+<h3 id="how-to-connect-ips-and-epi-resources">How to connect IPS and ePI resources</h3>
+<p>The following unique identifiers are used as connection points between the IPS bundle, the ePI Master List and the ePI document (e.g., PIL or SmPC).</p>
 
-<h3 id="epi-terminologies">ePI Terminologies</h3>
+<p><strong>Market Authorization Number (MAN)</strong>
+A marketing authorisation number is used to uniquely identify a medicinal product. it is allocated to a specific strength and pharmaceutical form of the medicinal product.</p>
 
-<h4 id="epi-code-systems">ePI Code Systems</h4>
-<p>The ePI uses the following as primary terminologies:</p>
-<ol>
-  <li>EDQM Standard Terms</li>
-  <li>ISO</li>
-  <li>UCUM</li>
-</ol>
+<p>The marketing authorisation number, assigned by the European Medicines Agency to a centrally authorised medicinal product, indicates whether it is a product for human or veterinary use, the year of authorisation of the first presentation of the product, the sequence number of the authorisation of the first presentation of the product and the number distinguishing subsequently authorised presentations of the product (pharmaceutical form, strength, pack size and type of packaging). It has the following format: EU/A/BB/CCC/DDD:</p>
 
-<h4 id="epi-value-sets">ePI Value Sets</h4>
-<ol>
-  <li>Dosage forms (example)</li>
-  <li>Routes of administration (example)</li>
-  <li>Country codes (two letter) (example)</li>
-  <li>Language codes (two letter) (example)</li>
-  <li>Units of measure (example)</li>
-</ol>
+<p>EU – identification of a centrally authorised medicinal product</p>
 
-<h3 id="ips-terminologies">IPS Terminologies</h3>
-<p><a name="65fe01e0-f711-486c-b23f-ecc404fbf562">​</a>Refer to the <a href="http://build.fhir.org/ig/HL7/fhir-ips/terminology.html">IPS Implementation Guide</a> for complete list of terminologies in use.</p>
+<p>A – distinction of the medicinal product (1 – human medicine, 2 – veterinary medicine)</p>
 
-<h4 id="ips-code-systems-relevant-to-this-use-case">IPS Code Systems (Relevant to this use case)</h4>
+<p>BB – year of authorisation</p>
 
-<h4 id="ips-value-sets-relevant-to-this-use-case">IPS Value Sets (Relevant to this use case)</h4>
+<p>CCC – serial number of the authorisation</p>
 
-<div xsi:schemalocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
+<p>DDD – number of the product presentation</p>
 
-  <h4>ValueSets</h4>
-  <div>
-    
-  </div>
+<p>This type of the marketing authorisation number allows for the tracing of links between individual product presentations assigned to the global authorisation; however, it does not allow for the distinguishing of the year in which the individual presentations were authorised, and it does not even indicatively point to the therapeutic area of the use of the product.</p>
 
-  <h4>CodeSystems</h4>
-  <div>
-     <li><a href="CodeSystem-Example-sections-PL.html">EMA example-sections-pl</a></li>
- <li><a href="CodeSystem-Example-sections-smpc.html">EMA example-sections-smpc</a></li>
+<p>The marketing authorisation number of a product which is subject to parallel distribution, comprises of the marketing authorisation number of a centrally authorised medicinal product complemented with the letters “PD”, meaning parallel distribution, the sequential number of the parallel distribution authorisation in the respective year, and the year of issuance of such authorisation; prior to 1 January 2017, the letters “PD” were complemented with the sequential number of the parallel distribution authorisation issued for the concerned medicinal product and the year of issuance of the parallel distribution authorisation. The data after the letters PD serve solely for the Institute’s internal purposes, they do not form part of the marketing authorisation number and in the search database they are provided on a separate line under the marketing authorisation number.</p>
 
-  </div>
+<p><strong>Substance Identifier (SID) for the active ingredient(s)</strong></p>
 
-  <h4>ConceptMaps</h4>
-  <div>
-    
-  </div>
+<h4 id="ips">IPS</h4>
+<p>Within the IPS bundle, the medicinal product identifiers are found in the MedicationIPS section.</p>
 
-  <h4>NamingSystems</h4>
-  <div>
-    
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Medication.language</td>
+      <td>Language of the content</td>
+    </tr>
+    <tr>
+      <td>Medication.code</td>
+      <td>Medication that was administered or was to be administered (medication code from any code system)</td>
+    </tr>
+    <tr>
+      <td>Medication.code:atcClass</td>
+      <td>WHO ATC classification</td>
+    </tr>
+    <tr>
+      <td>Medication.code:snomed</td>
+      <td>SNOMED CT medications</td>
+    </tr>
+    <tr>
+      <td>Medication.code:man</td>
+      <td>Unique medicinal product identifier issued by the national competant authority. <strong>The MAN is the only identifier that definitively connects the IPS bundle to the ePI Master List and the ePI document bundles</strong></td>
+    </tr>
+    <tr>
+      <td>Medication.status</td>
+      <td>States whether the medicinal product is available for use (active) or not available for use (inactive)</td>
+    </tr>
+    <tr>
+      <td>Medication.form</td>
+      <td>Form of the medicinal product</td>
+    </tr>
+    <tr>
+      <td>Medication.ingredient</td>
+      <td>Active substance (or ingredient) of the medicinal product</td>
+    </tr>
+    <tr>
+      <td>Medication.ingredient.itemCodeableConcept</td>
+      <td>Unique identifier for the active ingredient in the medicinal product</td>
+    </tr>
+    <tr>
+      <td>Medication.ingredient.itemCodeableConcept.text</td>
+      <td>Plain text representation of the active ingredients name</td>
+    </tr>
+    <tr>
+      <td>Medication.ingredient.strength</td>
+      <td>The strength of the medicinal product expressed as a ratio of two quantity values - a numerator and a denominator</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="epi---master-list">ePI - Master List</h4>
+<p>The ePI Master List is a List resource and serves as an index of all ePI documents associated to a given medicinal product. For example, all SmPCs and all PILs for a given medicinal product.</p>
+
+<p>Within the ePI Master List, the medicinal product identifiers are found here:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list.identifier.system:medicine-name</td>
+      <td>Plain text brand name of the medicinal product</td>
+    </tr>
+    <tr>
+      <td>list.identifier.system:marketing-authorisation-numbers</td>
+      <td>Unique medicinal product identifier issued by the national competant authority. <strong>The MAN is the only identifier that definitively connects the ePI Master List to the IPS bundle and the ePI document bundles</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Within the ePI Master List, the identifier for the individual ePI document bundles are found here:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list.code.coding.system:example-pi-list-types</td>
+      <td>Identifies the type of list</td>
+    </tr>
+    <tr>
+      <td>list.code.coding.code:00000021213</td>
+      <td>code for the ePI Master List type</td>
+    </tr>
+    <tr>
+      <td>list.code.coding.display:ePI Master List</td>
+      <td>display name for the List type code</td>
+    </tr>
+    <tr>
+      <td>list.subject.extension.valueCoding.system:medicine-name</td>
+      <td>branded name of the medicinal product</td>
+    </tr>
+    <tr>
+      <td>list.subject.extension.valueCoding.system:marketing-authorization-holder</td>
+      <td>Unique medicinal product identifier issued by the national competant authority. <strong>The MAN is the only identifier that definitively connects the IPS bundle to the ePI Master List and the ePI document bundles</strong></td>
+    </tr>
+    <tr>
+      <td>list.subject.extension.valueCoding.system:active-substance</td>
+      <td>Active substance (or ingredient) of the medicinal product</td>
+    </tr>
+    <tr>
+      <td>list.subject.extension.valueCoding.system:domain</td>
+      <td>Identifies whether the medicinal product is intended for human (H) or veterinary(V) use</td>
+    </tr>
+    <tr>
+      <td>list.entry.item.extension:documentType</td>
+      <td>Identifies the type of ePI document bundle (e.g., SmPC or PIL)</td>
+    </tr>
+    <tr>
+      <td>list.entry.item.extension:language</td>
+      <td>Identifies the language of the content in the ePI document bundle</td>
+    </tr>
+    <tr>
+      <td>list.entry.item.reference</td>
+      <td>Unique identifier to a specific version of a ePI document bundle (e.g., version 1.0 of a PIL for this medicinal product</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="epi-document-bundle">ePI Document Bundle</h4>
+<p>the ePI document bundle serves as the logical regulatory document. E.g., SmPC or PIL.</p>
+
+<p>Within the ePI document bundle, the medicinal product identifiers are found here:</p>
+
+<p>|Path|Description|
+|———|———|</p>
 
 
 
@@ -243,7 +353,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="006d112b-d14f-4bbc-80bb-a16f4b8444ad">​</a>
+        <p><a name="109d8115-f3a6-4a03-846c-a687d4e03c07">​</a>
           IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.gravitatehealth.eu/"></a>.  Package hl7.eu.fhir.gh#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://build.fhir.org/">FHIR 4.1.0</a>. Generated <span title="Tue, Aug 31, 2021 13:27+0000">2021-08-31</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
